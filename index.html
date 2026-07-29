@@ -1,93 +1,109 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>국내 출장여비 계산기 | 원주의료기기산업진흥원</title>
-  <style>
-    :root{--ink:#314254;--navy:#284f70;--blue:#4d9dc2;--mint:#dff2ea;--mint-ink:#24705f;--peach:#fff0e4;--paper:#fffdf9;--line:#e7e1da;--muted:#74818d;--shadow:0 18px 50px rgba(64,91,107,.12)}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 8%,#dceff5 0,transparent 24%),radial-gradient(circle at 92% 15%,#ffe9d9 0,transparent 22%),#f7f5f0;color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif}
-    .wrap{width:min(1140px,calc(100% - 32px));margin:36px auto 54px}.hero{position:relative;overflow:hidden;padding:33px 38px;color:#fff;background:linear-gradient(125deg,#315d7d,#3c87a0);border-radius:28px 28px 0 0;box-shadow:var(--shadow)}.hero:after,.hero:before{position:absolute;content:"";border-radius:50%;background:rgba(255,255,255,.12)}.hero:after{width:210px;height:210px;right:-75px;top:-115px}.hero:before{width:110px;height:110px;right:115px;bottom:-75px}.eyebrow{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.13em;opacity:.78}.hero h1{position:relative;z-index:1;margin:0;font-size:32px;letter-spacing:-.055em}.hero p:last-child{position:relative;z-index:1;margin:10px 0 0;font-size:14px;opacity:.88}
-    .app{display:grid;grid-template-columns:1.38fr .82fr;overflow:hidden;background:var(--paper);border-radius:0 0 28px 28px;box-shadow:var(--shadow)}.form{padding:33px 38px 40px}.summary{padding:33px 29px;background:#f9fcfb;border-left:1px solid var(--line)}h2{margin:0 0 20px;font-size:19px;letter-spacing:-.04em}.section{margin-top:28px;padding-top:27px;border-top:1px solid var(--line)}.section:first-of-type{margin-top:0;padding-top:0;border-top:0}.section-title{display:flex;align-items:center;gap:8px;margin:0 0 15px;font-size:15px;font-weight:850}.spark{width:10px;height:10px;border-radius:4px;transform:rotate(45deg);background:#f0a16d}
-    .tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tab{padding:14px 12px;border:1px solid #d9e2e4;border-radius:13px;background:#fff;color:#66808e;font:800 14px inherit;cursor:pointer}.tab.active{color:#fff;border-color:#4186a7;background:linear-gradient(135deg,#4b9aba,#337a9c);box-shadow:0 5px 13px rgba(52,121,155,.2)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}label{display:block;color:#556b78;font-size:13px;font-weight:800}input,select{width:100%;margin-top:7px;padding:12px 13px;border:1px solid #d8e0e2;border-radius:11px;outline:none;color:var(--ink);background:#fff;font:inherit;font-size:14px}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(77,157,194,.14)}.money{position:relative}.money:after{position:absolute;right:13px;bottom:12px;content:"원";color:#84919a;font-size:13px}.money input{padding-right:30px}.info{margin-top:15px;padding:14px 15px;border-radius:13px;color:var(--mint-ink);background:var(--mint);font-size:13px;line-height:1.65}.hint{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.65}.check{display:flex;align-items:center;gap:9px;margin-top:14px;padding:12px 13px;border-radius:11px;color:#586b75;background:#f0f6f4;font-size:13px;font-weight:700}.check input{width:17px;height:17px;margin:0;accent-color:#4b9d8e}.hide{display:none!important}
-    .row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px dashed #d7e4df}.row span{color:#667984;font-size:14px}.row strong{font-size:15px;text-align:right}.row em{font-style:normal;color:#8799a1;font-size:11px}.total{margin-top:24px;padding:20px;border-radius:17px;color:#fff;background:linear-gradient(135deg,#427f89,#3c9a8b)}.total small{display:block;font-weight:800;opacity:.84}.total b{display:block;margin-top:8px;font-size:30px}.guide{margin-top:22px;padding:15px;border-radius:13px;background:var(--peach);color:#7a5d4e;font-size:12px;line-height:1.7}.actions{display:flex;gap:10px;margin-top:20px}.action{flex:1;padding:12px 10px;border:0;border-radius:11px;cursor:pointer;color:#fff;background:var(--navy);font:800 14px inherit}.reset{color:var(--navy);background:#e5eff2}.footer{margin:16px 0 0;text-align:center;color:#8b969b;font-size:12px}
-    @media(max-width:820px){.wrap{width:min(100% - 20px,1140px);margin:10px auto 30px}.hero{padding:27px 23px;border-radius:20px 20px 0 0}.hero h1{font-size:25px}.app{grid-template-columns:1fr;border-radius:0 0 20px 20px}.form,.summary{padding:27px 22px}.summary{border-left:0;border-top:1px solid var(--line)}.grid,.grid.three{grid-template-columns:1fr}}
-    @media print{body{background:#fff}.wrap{width:100%;margin:0}.hero{border-radius:0;box-shadow:none}.app{border-radius:0;box-shadow:none}.actions,.footer{display:none}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>강사료 지급 계산기</title>
+<style>
+:root{--ink:#34434f;--navy:#375d75;--blue:#65a9c6;--cream:#fffaf1;--peach:#ffe8d7;--mint:#e4f4ec;--line:#e5e1d9;--muted:#74818b;--white:#fff;--shadow:0 18px 48px rgba(68,87,99,.14)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 10%,#dceff5 0,transparent 25%),radial-gradient(circle at 92% 8%,#ffe3d2 0,transparent 24%),#f6f4ef;color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",sans-serif}.wrap{width:min(1140px,calc(100% - 28px));margin:32px auto 50px}.hero{position:relative;overflow:hidden;padding:32px 38px;color:#fff;background:linear-gradient(125deg,#416b83,#5ca6b5);border-radius:28px 28px 0 0;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:220px;height:220px;right:-70px;top:-120px;border-radius:50%;background:rgba(255,255,255,.13)}.eyebrow{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.12em;opacity:.8}.hero h1{margin:0;font-size:31px;letter-spacing:-.05em}.hero p:last-child{margin:9px 0 0;font-size:14px;opacity:.88}.app{display:grid;grid-template-columns:1.4fr .8fr;overflow:hidden;background:var(--cream);border-radius:0 0 28px 28px;box-shadow:var(--shadow)}.form{padding:32px 38px 38px}.result{padding:32px 28px;background:#fbfefd;border-left:1px solid var(--line)}h2{margin:0 0 19px;font-size:19px;letter-spacing:-.04em}.section{margin-top:27px;padding-top:26px;border-top:1px solid var(--line)}.section:first-child{margin-top:0;padding-top:0;border:0}.title{display:flex;align-items:center;gap:8px;margin:0 0 14px;font-size:15px;font-weight:850}.dot{width:10px;height:10px;border-radius:4px;transform:rotate(45deg);background:#f3a678}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}label{display:block;color:#556b77;font-size:13px;font-weight:800}input,select{width:100%;margin-top:7px;padding:12px 13px;border:1px solid #d8e1e3;border-radius:11px;outline:none;color:var(--ink);background:#fff;font:inherit;font-size:14px}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(101,169,198,.14)}.info{margin-top:14px;padding:14px 15px;border-radius:13px;color:#27685c;background:var(--mint);font-size:13px;line-height:1.65}.targets{margin-top:12px;padding:14px 15px;border-radius:13px;background:#fff;border:1px solid var(--line);font-size:12px;line-height:1.65}.targets b{color:#3d6c83}.targets .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}.targets ul{margin:0;padding-left:17px}.hint{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.6}.row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px dashed #d6e3df}.row span{color:#667984;font-size:14px}.row strong{font-size:15px;text-align:right}.row em{font-style:normal;color:#8a989f;font-size:11px}.total{margin-top:23px;padding:20px;border-radius:17px;color:#fff;background:linear-gradient(135deg,#477d8d,#52a08f)}.total small{display:block;font-weight:800;opacity:.84}.total b{display:block;margin-top:7px;font-size:30px}.notice{margin-top:21px;padding:15px;border-radius:13px;color:#755b4b;background:var(--peach);font-size:12px;line-height:1.7}.actions{display:flex;gap:10px;margin-top:19px}.action{flex:1;padding:12px;border:0;border-radius:11px;cursor:pointer;color:#fff;background:var(--navy);font:800 14px inherit}.reset{color:var(--navy);background:#e4eff2}.links{margin-top:14px;text-align:center;font-size:12px}.links a{color:#477d96;font-weight:800}.hide{display:none!important}
+@media(max-width:820px){.wrap{width:min(100% - 18px,1140px);margin:9px auto 28px}.hero{padding:26px 22px;border-radius:20px 20px 0 0}.hero h1{font-size:25px}.app{grid-template-columns:1fr;border-radius:0 0 20px 20px}.form,.result{padding:26px 21px}.result{border-left:0;border-top:1px solid var(--line)}.grid,.grid.three,.targets .cols{grid-template-columns:1fr}}
+@media print{body{background:#fff}.wrap{width:100%;margin:0}.hero,.app{border-radius:0;box-shadow:none}.actions,.links{display:none}}
+</style>
 </head>
 <body>
 <main class="wrap">
-  <header class="hero"><p class="eyebrow">WONJU MEDICAL INDUSTRY TECH VALLEY</p><h1>국내 출장여비 계산기</h1><p>여비지급 기준표 및 제14조~제16조 반영 · 단위: 원</p></header>
-  <section class="app">
-    <div class="form">
-      <section class="section">
-        <h2>1. 출장 구분</h2>
-        <div class="tabs"><button id="insideTab" class="tab active" type="button">관내출장<br><small>원주시 관내 또는 12km 미만</small></button><button id="outsideTab" class="tab" type="button">관외출장</button></div>
-      </section>
-      <section class="section">
-        <p class="section-title"><span class="spark"></span>대상자 및 기본정보</p>
-        <div class="grid"><label>해당 직위<select id="position"><option value="1">임원 · 원장 (제1호관)</option><option value="2" selected>소속 직원 (제2호관)</option></select></label><label id="daysWrap" class="hide">출장 일수<input id="days" type="number" min="1" value="1" inputmode="numeric"></label></div>
-        <div id="gradeInfo" class="info"></div>
-      </section>
-      <section id="insidePanel" class="section">
-        <p class="section-title"><span class="spark"></span>관내출장 계산</p>
-        <div class="grid"><label>출장여행 시간<select id="insideHours"><option value="under">4시간 미만</option><option value="over">4시간 이상</option></select></label><label>법인차량 이용<select id="insideCar"><option value="no">아니오</option><option value="yes">예</option></select></label></div>
-        <p class="hint">4시간 이상은 20,000원, 4시간 미만은 10,000원을 지급하며, 법인차량 이용자에게는 지급하지 않습니다.</p>
-      </section>
-      <section id="outsidePanel" class="section hide">
-        <p class="section-title"><span class="spark"></span>관외출장 입력</p>
-        <div class="grid three"><label>숙박 일수<input id="nights" type="number" min="0" value="0" inputmode="numeric"></label><label>숙박 지역<select id="area"><option value="other">그 밖의 지역</option><option value="metro">광역시</option><option value="seoul">서울특별시</option></select></label><label>이동 방식<select id="travelMode"><option value="public">대중교통</option><option value="corp">법인차량 이용</option><option value="ride">자가용 동승</option><option value="own">자가용 운전</option></select></label></div>
-        <div class="grid" style="margin-top:14px"><label class="money">숙박 실비 총액<input id="lodgingActual" type="text" inputmode="numeric" placeholder="영수증 기준 입력"></label><label class="money">운임·교통비 실비 총액<input id="fareActual" type="text" inputmode="numeric" placeholder="영수증 기준 입력"></label></div>
-        <label class="check"><input id="extraLodging" type="checkbox">숙박비 상한액의 10분의 3 범위 내 추가지급 승인 및 증빙 완료</label>
-        <label class="check"><input id="noLodging" type="checkbox">수로·항공 여행 중 숙박으로 숙박비 미지급 대상</label>
-        <p id="outsideHint" class="hint"></p>
-      </section>
+<header class="hero"><p class="eyebrow">외래강사 수당 지급기준</p><h1>강사료 지급 계산기</h1><p>등급별 최초 1시간·초과시간 및 이동시간 보상수당 계산</p></header>
+<section class="app">
+<div class="form">
+  <section class="section">
+    <h2>강사 정보</h2>
+    <div class="grid">
+      <label>강사 구분
+        <select id="publicType">
+          <option value="general">일반</option>
+          <option value="schoolMedia">공직자 등 — 학교·언론사 해당자</option>
+          <option value="otherPublic">공직자 등 — 그 외</option>
+        </select>
+      </label>
+      <label>강사 등급
+        <select id="grade">
+          <option value="special1">특1급</option><option value="special2">특2급</option><option value="1">1급</option><option value="2" selected>2급</option><option value="3">3급</option><option value="4">4급</option><option value="5">5급</option>
+        </select>
+      </label>
     </div>
-    <aside class="summary">
-      <h2>예상 지급액</h2>
-      <div id="insideResult"><div class="row"><span>관내출장 여비</span><strong id="insideTotal">0원</strong></div></div>
-      <div id="outsideResult" class="hide"><div class="row"><span>일비 <em id="dailyNote"></em></span><strong id="daily">0원</strong></div><div class="row"><span>식비 <em id="mealNote"></em></span><strong id="meal">0원</strong></div><div class="row"><span>숙박비</span><strong id="lodging">0원</strong></div><div class="row"><span>운임·교통비</span><strong id="fare">0원</strong></div></div>
-      <div class="total"><small>예상 지급액 합계</small><b id="total">0원</b></div>
-      <div class="guide"><b>확인사항</b><br>• 일비·숙박비는 동일지역 장기체재 시 감액 기준이 적용될 수 있습니다.<br>• 숙박비 추가지급은 카드전표 등 증빙자료와 결재가 필요합니다.<br>• 자가용 운전 시 유류비·통행료 등은 관련 규정에 따라 정산합니다.</div>
-      <div class="actions"><button id="reset" class="action reset" type="button">초기화</button><button id="print" class="action" type="button">계산내역 인쇄</button></div>
-    </aside>
+    <div id="rateInfo" class="info"></div>
+    <label id="special1RateWrap" class="hide" style="margin-top:14px">특1급 초과 매시간 기준(지급표 표기)
+      <select id="special1Extra"><option value="300000">30만원</option><option value="200000">20만원(*)</option></select>
+    </label>
+    <div id="targetInfo" class="targets"></div>
   </section>
-  <p class="footer">※ 첨부된 국내출장 여비 지급표와 관련 조항을 바탕으로 작성한 계산기입니다.</p>
+  <section class="section">
+    <p class="title"><span class="dot"></span>강의시간</p>
+    <div class="grid">
+      <label>실제 강의시간(시간)<input id="hours" type="number" min="0" value="1" inputmode="numeric"></label>
+      <label>추가 분<select id="minutes"><option value="0">0분</option><option value="10">10분</option><option value="20">20분</option><option value="30">30분</option><option value="40">40분</option><option value="50">50분</option></select></label>
+    </div>
+    <p class="hint">최초 1시간은 1시간으로 산출하며, 이후 초과시간은 30분 이상부터 1시간으로 인정합니다. 30분 미만은 강의시간에 포함하지 않습니다.</p>
+  </section>
+  <section class="section">
+    <p class="title"><span class="dot"></span>이동시간 보상수당</p>
+    <label>왕복 이동거리<select id="distance"><option value="under">300km 미만 — 미지급</option><option value="over">300km 이상 — 지급</option></select></label>
+    <p id="distanceHint" class="hint"></p>
+  </section>
+</div>
+<aside class="result">
+  <h2>계산 결과</h2>
+  <div class="row"><span>강의 인정시간</span><strong id="recognized">0시간</strong></div>
+  <div class="row"><span>최초 1시간 수당</span><strong id="firstFee">0원</strong></div>
+  <div class="row"><span>초과시간 수당 <em id="extraDesc"></em></span><strong id="extraFee">0원</strong></div>
+  <div class="row"><span>이동시간 보상수당</span><strong id="travelFee">0원</strong></div>
+  <div class="total"><small>강사수당 합계</small><b id="total">0원</b></div>
+  <div class="notice"><b>지급 전 확인</b><br>• 이동시간 보상수당은 1일 1회 지급합니다.<br>• 공직자 등의 수당에는 강의료·원고료·출연료 등 일체의 사례금이 포함됩니다.<br>• 공직자 등은 청탁금지법상 외부강의 사례금 상한액을 별도로 확인해야 합니다.<br>• 강사의 교통비는 관련 실비보상 규칙에 따라 별도 지급할 수 있습니다.<br>• 비대면 교육 강사수당은 일반강의 강사수당에 준합니다.<br>• 해당 분야 권위자로서 원장이 특별히 인정한 경우 지급기준과 달리 지급할 수 있습니다.</div>
+  <div class="actions"><button id="reset" class="action reset" type="button">초기화</button><button id="print" class="action" type="button">인쇄</button></div>
+  <div class="links"><a href="원고료_지급_계산기.html">원고료 지급 계산기 열기 →</a></div>
+</aside>
+</section>
 </main>
 <script>
-const $=id=>document.getElementById(id),won=n=>new Intl.NumberFormat("ko-KR").format(Math.max(0,Math.round(n)))+"원";
-let tripType="inside";
-const caps={seoul:100000,metro:80000,other:70000},names={seoul:"서울특별시",metro:"광역시",other:"그 밖의 지역"};
-const numeric=id=>Number(String($(id).value).replace(/[^0-9]/g,""))||0;
-const grade=()=>$("position").value==="1"?{label:"제1호관 · 임원, 원장",rail:"특실",ship:"1등급",air:"1등석",lodging:"실비(특실)"}:{label:"제2호관 · 소속 직원",rail:"일반실",ship:"2등급",air:"2등석",lodging:"실비(지역별 상한)"};
+const $=id=>document.getElementById(id),won=n=>new Intl.NumberFormat("ko-KR").format(Math.round(n))+"원";
+const rates={
+ special1:{name:"특1급",first:400000,extra:300000,travel:300000},
+ special2:{name:"특2급",first:300000,extra:200000,travel:200000},
+ "1":{name:"1급",first:250000,extra:120000,travel:120000},
+ "2":{name:"2급",first:150000,extra:80000,travel:80000},
+ "3":{name:"3급",first:100000,extra:50000,travel:50000},
+ "4":{name:"4급",first:80000,extra:40000,travel:40000},
+ "5":{name:"5급",first:60000,extra:30000,travel:30000}
+};
+const targets={
+ special1:{general:["전직 장관급 및 대학총장","전직 국회의원 및 광역자치단체장","대기업 회장"],public:["장관급*","광역자치단체장*","대학총장(장관급)","국회의원*"]},
+ special2:{general:["전직 차관(급)","전직 공기업 대표","전직 기초자치단체장"],public:["차관급·대학총장(차관급)","기초자치단체장","공직유관단체장"]},
+ "1":{general:["전직 4급 이상 공무원","전직 지방의회의원(의장 포함)","유명 예술인·종교인 등","기업·기관·단체 임원 및 중역","전문자격 5년 이상 실무경력자","박사 취득 후 해당 분야 5년 이상 실무경력자","국가대표 지도자 및 국가대표 출신 강사"],public:["4급 이상 공무원","지방의회의원","대학 교수","공직유관단체 임원(출연연구기관 부연구위원 이상)","언론인"]},
+ "2":{general:["전직 5급 이하 공무원","중소기업 임원급, 기관·단체 부장급","체육지도사 1급 및 해당 교과분야 3년 이상 강의 경력자","원어민 어학 강사","전문자격증 취득 후 3년 이상 실무경력자"],public:["5급 이하 공무원","대학의 강사 등","공직유관단체 직원"]},
+ "3":{general:["외국어·전산 등 강사","자격인정 3년 이상 체육·레크리에이션 등 취미소양 강사"],public:[]},
+ "4":{general:["체육·레크리에이션 등 취미소양 강사"],public:[]},
+ "5":{general:["각종 교육운영(실기실습 등) 보조자"],public:[]}
+};
+function recognizedHours(){
+ const h=Math.max(0,Number($("hours").value)||0),m=Number($("minutes").value)||0,total=h*60+m;
+ if(total===0)return 0;if(total<=60)return 1;
+ const full=Math.floor(total/60),remainder=total%60;return full+(remainder>=30?1:0);
+}
+function list(items){return items.length?"<ul>"+items.map(x=>"<li>"+x+"</li>").join("")+"</ul>":"<span>지급표에 별도 기재 없음</span>"}
 function update(){
-  const g=grade(),days=Math.max(1,Number($("days").value)||1);
-  $("gradeInfo").innerHTML="<b>"+g.label+" 기준</b><br>철도 "+g.rail+" · 선박 "+g.ship+" · 항공 "+g.air+" · 일비 25,000원/일 · 식비 25,000원/일 · 숙박비 "+g.lodging;
-  if(tripType==="inside"){
-    const amount=$("insideCar").value==="yes"?0:($("insideHours").value==="over"?20000:10000);
-    $("insideTotal").textContent=won(amount);$("total").textContent=won(amount);return;
-  }
-  const mode=$("travelMode").value,isCorp=mode==="corp",noFare=mode==="corp"||mode==="ride";
-  const daily=days*25000*(isCorp?.5:1),meal=days*25000,nights=Math.max(0,Number($("nights").value)||0),actualLodging=numeric("lodgingActual"),actualFare=numeric("fareActual");
-  const basicCap=$("position").value==="1"?Infinity:caps[$("area").value]*nights;
-  const appliedCap=basicCap===Infinity?Infinity:basicCap*($("extraLodging").checked?1.3:1);
-  const lodging=$("noLodging").checked?0:Math.min(actualLodging,appliedCap),fare=noFare?0:actualFare,total=daily+meal+lodging+fare;
-  $("daily").textContent=won(daily);$("meal").textContent=won(meal);$("lodging").textContent=won(lodging);$("fare").textContent=won(fare);$("total").textContent=won(total);
-  $("dailyNote").textContent="(25,000원 × "+days+"일"+(isCorp?" · 법인차량 50%":"")+")";$("mealNote").textContent="(25,000원 × "+days+"일)";
-  const standardCap=caps[$("area").value]*nights,approvedCap=standardCap*1.3;
-  const lodgingText=$("noLodging").checked?"수로·항공 여행 중 숙박: 미지급":$("position").value==="1"?"제1호관 숙박비: 실비(특실)":names[$("area").value]+" "+nights+"박 기준: 기본 한도 "+won(standardCap)+" / 추가지급 승인 시 최대 "+won(approvedCap);
-  const fareText=noFare?"법인차량 이용 또는 자가용 동승: 운임 미지급":mode==="own"?"자가용 운전: 관련 규정에 따라 정산":"대중교통 실비";
-  $("outsideHint").textContent="숙박비: "+lodgingText+" · 운임: "+fareText;
+ const r=rates[$("grade").value],type=$("publicType").value,h=recognizedHours();
+ const extraRate=$("grade").value==="special1"?Number($("special1Extra").value):r.extra;
+ const first=h>0?r.first:0,extra=Math.max(0,h-1)*extraRate;
+ const travelEligible=$("distance").value==="over"&&(type==="general"||type==="schoolMedia"),travel=travelEligible?r.travel:0;
+ $("rateInfo").innerHTML="<b>"+r.name+" 지급기준</b><br>최초 1시간 "+won(r.first)+" · 초과 매시간 "+won(extraRate)+" · 이동시간 보상 "+won(r.travel);
+ $("special1RateWrap").classList.toggle("hide",$("grade").value!=="special1");
+ const t=targets[$("grade").value];$("targetInfo").innerHTML="<b>적용대상 확인</b><div class='cols'><div><strong>일반</strong>"+list(t.general)+"</div><div><strong>공직자 등</strong>"+list(t.public)+"</div></div>";
+ $("recognized").textContent=h+"시간";$("firstFee").textContent=won(first);$("extraFee").textContent=won(extra);$("extraDesc").textContent="("+won(extraRate)+" × "+Math.max(0,h-1)+"시간)";$("travelFee").textContent=won(travel);$("total").textContent=won(first+extra+travel);
+ $("distanceHint").textContent=type==="otherPublic"?"공직자 등 중 학교의 장·교직원·학교법인 임직원 및 언론사 대표자·임직원 외에는 이동시간 보상수당을 지급하지 않습니다.":"왕복 300km 이상인 경우 등급별 이동시간 보상수당을 1일 1회 지급합니다.";
 }
-function setType(type){
-  tripType=type;$("insideTab").classList.toggle("active",type==="inside");$("outsideTab").classList.toggle("active",type==="outside");
-  $("insidePanel").classList.toggle("hide",type!=="inside");$("outsidePanel").classList.toggle("hide",type!=="outside");
-  $("insideResult").classList.toggle("hide",type!=="inside");$("outsideResult").classList.toggle("hide",type!=="outside");$("daysWrap").classList.toggle("hide",type==="inside");update();
-}
-["position","days","insideHours","insideCar","nights","area","travelMode","lodgingActual","fareActual","extraLodging","noLodging"].forEach(id=>["input","change"].forEach(event=>$(id).addEventListener(event,update)));
-$("insideTab").addEventListener("click",()=>setType("inside"));$("outsideTab").addEventListener("click",()=>setType("outside"));$("print").addEventListener("click",()=>window.print());
-$("reset").addEventListener("click",()=>{$("position").value="2";$("days").value=1;$("insideHours").value="under";$("insideCar").value="no";$("nights").value=0;$("area").value="other";$("travelMode").value="public";$("lodgingActual").value="";$("fareActual").value="";$("extraLodging").checked=false;$("noLodging").checked=false;setType("inside")});
-update();
+["publicType","grade","special1Extra","hours","minutes","distance"].forEach(id=>["input","change"].forEach(e=>$(id).addEventListener(e,update)));
+$("reset").addEventListener("click",()=>{$("publicType").value="general";$("grade").value="2";$("special1Extra").value="300000";$("hours").value=1;$("minutes").value=0;$("distance").value="under";update()});$("print").addEventListener("click",()=>window.print());update();
 </script>
 </body>
 </html>
